@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Tools
+namespace NetworkSolver.Common.Topology
 {
     public class Path
     {

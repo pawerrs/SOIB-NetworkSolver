@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Tools
+namespace NetworkSolver.Common.Topology
 {
     public class Network
     {

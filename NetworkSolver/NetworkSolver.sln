@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver", "NetworkSolver.csproj", "{E5F51412-BC05-42AD-92DE-8C6AFB716483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkSolver", "NetworkSolver.csproj", "{E5F51412-BC05-42AD-92DE-8C6AFB716483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.Models", "..\NetworkSolver.Models\NetworkSolver.Models.csproj", "{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkSolver.Common", "..\NetworkSolver.Models\NetworkSolver.Common.csproj", "{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.DataAccess", "..\NetworkSolver.DataAccess\NetworkSolver.DataAccess.csproj", "{2F7ECDE5-83B2-41FB-9EFE-AD1C70853A56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.Services", "..\NetworkSolver.Services\NetworkSolver.Services.csproj", "{8C619937-EE33-4228-9B1C-56C9A2949959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7ECDE5-83B2-41FB-9EFE-AD1C70853A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7ECDE5-83B2-41FB-9EFE-AD1C70853A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7ECDE5-83B2-41FB-9EFE-AD1C70853A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7ECDE5-83B2-41FB-9EFE-AD1C70853A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C619937-EE33-4228-9B1C-56C9A2949959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C619937-EE33-4228-9B1C-56C9A2949959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C619937-EE33-4228-9B1C-56C9A2949959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C619937-EE33-4228-9B1C-56C9A2949959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

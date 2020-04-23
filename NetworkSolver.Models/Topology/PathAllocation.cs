@@ -1,7 +1,7 @@
-﻿using System;
-using Tools;
+﻿
+using System;
 
-namespace Tools
+namespace NetworkSolver.Common.Topology
 {
     public class PathAllocation
     {

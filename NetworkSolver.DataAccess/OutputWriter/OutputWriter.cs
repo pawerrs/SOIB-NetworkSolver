@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NetworkSolver.Common.Topology;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Tools
+namespace NetworkSolver.DataAccess.OutputWriter
 {
     public class OutputWriter
     {
