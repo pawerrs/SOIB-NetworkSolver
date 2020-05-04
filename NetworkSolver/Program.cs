@@ -16,10 +16,12 @@ namespace NetworkSolver
             Console.WriteLine("1: Network_1.txt");
             Console.WriteLine("2: Network_2.txt");
             string choice = Console.ReadLine();
-            Network inputNetwork = new Network();
+            Network inputNetwork;
             if (choice.Equals("1") || choice.Equals("2"))
             {
-                inputNetwork = parser.ReadNetwork("Network_" + choice + ".txt");
+                inputNetwork = parser.ReadNetwork($"Network_{choice}.txt");
+                if (inputNetwork == null)
+                    return;
             }
             else
             {
@@ -38,18 +40,17 @@ namespace NetworkSolver
             }
 
             // all paths generated. Finding perfect combination.
-            GeneticAlgorithmParameters parameters = new GeneticAlgorithmParameters();
-            parameters.InitialPopulationSize = 100;
-            parameters.CrossoverProbability = (float)0.2;
-            parameters.MutationProbability = (float)0.1;
-            parameters.RandomSeed = 4253;
-            parameters.LimitValue = 30;
-            parameters.StoppingCriteria = StoppingCriteria.NoImprovement;
+            GeneticAlgorithmParameters parameters = new GeneticAlgorithmParameters
+            {
+                InitialPopulationSize = 100,
+                CrossoverProbability = (float)0.2,
+                MutationProbability = (float)0.1,
+                RandomSeed = 4253,
+                LimitValue = 30,
+                StoppingCriteria = StoppingCriteria.NoImprovement
+            };
 
-            string fileName = "Network_" + choice;
-            GeneticService geneticService = new GeneticService(parameters, inputNetwork, pathFinder, fileName);
-            geneticService.Solve();
-
+            new GeneticService(parameters, inputNetwork, pathFinder, $"NetworkSolution_{choice}").Solve();
         }
     }
 }

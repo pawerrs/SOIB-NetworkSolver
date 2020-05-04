@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.DataAccess", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.Services", "..\NetworkSolver.Services\NetworkSolver.Services.csproj", "{8C619937-EE33-4228-9B1C-56C9A2949959}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkSolver.Models", "..\NetworkSolver.Models\NetworkSolver.Models.csproj", "{D4AD4B6B-40CD-458F-9AD2-9AC2A401FA43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

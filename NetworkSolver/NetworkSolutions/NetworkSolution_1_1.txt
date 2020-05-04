@@ -1,0 +1,39 @@
+Solution for NetworkSolution_1.txt
+Used lambdas: 2
+Defined demands: (Demand_ID:  First_Node_ID  Second_Node_ID)
+0: 1 2
+1: 1 3
+2: 1 4
+3: 2 3
+4: 2 4
+5: 3 4
+
+Links defined in network: (Link_ID: Start_Node - End_Node)
+1: 1-2
+2: 1-3
+3: 1-4
+4: 2-3
+5: 3-4
+
+Chosen paths for each demand: (Demand_ID: <list of links>)
+0:  1
+1:  2
+2:  3
+3:  4
+4:  1 2 5
+5:  5
+
+Easier to imagine version: (Start_node -> End_Node: *Lambda_ID* <list of nodes on path>)
+1 -> 2: *1* 1 -> 2
+1 -> 3: *1* 1 -> 3
+1 -> 4: *1* 1 -> 4
+2 -> 3: *1* 2 -> 3
+2 -> 4: *2* 2 -> 1 -> 3 -> 4
+3 -> 4: *1* 3 -> 4
+
+Links load (Link_ID:  <list of lambdas>)
+1: 1 2
+2: 1 2
+3: 1
+4: 1
+5: 2 1

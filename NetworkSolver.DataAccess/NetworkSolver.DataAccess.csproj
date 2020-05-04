@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetworkSolver.Models\NetworkSolver.Common.csproj" />
+    <ProjectReference Include="..\NetworkSolver.Models\NetworkSolver.Models.csproj" />
   </ItemGroup>
 
 </Project>

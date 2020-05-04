@@ -7,8 +7,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetworkSolver.DataAccess\NetworkSolver.DataAccess.csproj" />
-    <ProjectReference Include="..\NetworkSolver.Models\NetworkSolver.Common.csproj" />
+    <ProjectReference Include="..\NetworkSolver.Models\NetworkSolver.Models.csproj" />
     <ProjectReference Include="..\NetworkSolver.Services\NetworkSolver.Services.csproj" />
+	
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Network_1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Network_2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

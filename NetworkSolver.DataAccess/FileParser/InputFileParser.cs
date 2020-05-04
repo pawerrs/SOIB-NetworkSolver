@@ -12,9 +12,10 @@ namespace NetworkSolver.DataAccess.InputFileParser
 
         public Network ReadNetwork(string fileName) 
         {
-            string pathToFile = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            string pathToFile = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"Resources\\{fileName}");
             if (File.Exists(pathToFile))
                 return ParseFileToNetwork(pathToFile);
+            
 
             Console.WriteLine("File does not exist");
             return null;
