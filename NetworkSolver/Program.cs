@@ -15,9 +15,10 @@ namespace NetworkSolver
             Console.WriteLine("Choose network to optimize:");
             Console.WriteLine("1: Network_1.txt");
             Console.WriteLine("2: Network_2.txt");
+            Console.WriteLine("3: Network_3.txt");
             string choice = Console.ReadLine();
             Network inputNetwork;
-            if (choice.Equals("1") || choice.Equals("2"))
+            if (choice.Equals("1") || choice.Equals("2") || choice.Equals("3"))
             {
                 inputNetwork = parser.ReadNetwork($"Network_{choice}.txt");
                 if (inputNetwork == null)

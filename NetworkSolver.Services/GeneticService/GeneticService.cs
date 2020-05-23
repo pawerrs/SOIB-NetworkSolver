@@ -12,7 +12,6 @@ namespace NetworkSolver.Services.GeneticService
     public class GeneticService
     {
         private readonly GeneticAlgorithmParameters _parameters;
-        private readonly LambdaCalculator _calculator;
         private readonly OutputWriter _outputWriter;
         private readonly Network _network;
         private readonly PathFinder _pathFinder;
@@ -23,7 +22,6 @@ namespace NetworkSolver.Services.GeneticService
             _parameters = parameters;
             _network = network;
             _pathFinder = paths;
-            _calculator = new LambdaCalculator();
             _outputWriter = new OutputWriter();
             _currentFileName = fileName;
         }
