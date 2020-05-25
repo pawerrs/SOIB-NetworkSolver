@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace NetworkSolver.Services.GeneticService
 {
@@ -16,14 +17,25 @@ namespace NetworkSolver.Services.GeneticService
         private readonly Network _network;
         private readonly PathFinder _pathFinder;
         private readonly string _currentFileName;
+        private readonly bool _isNetworkFromFile;
 
         public GeneticService(GeneticAlgorithmParameters parameters, Network network, PathFinder paths, string fileName)
         {
             _parameters = parameters;
             _network = network;
             _pathFinder = paths;
-            _outputWriter = new OutputWriter();
             _currentFileName = fileName;
+            _isNetworkFromFile = true;
+            _outputWriter = new OutputWriter();
+        }
+
+        public GeneticService(GeneticAlgorithmParameters parameters, Network network, PathFinder paths)
+        {
+            _parameters = parameters;
+            _network = network;
+            _pathFinder = paths;
+            _isNetworkFromFile = false;
+            _outputWriter = new OutputWriter();
         }
 
         public void Solve()
@@ -169,7 +181,7 @@ namespace NetworkSolver.Services.GeneticService
             Console.WriteLine($"Genetic Algorithm exited after {(double)state.ElapsedTime.ElapsedMilliseconds / 1000} seconds. " +
                               $"Generations cultured: {state.NumberOfGenerations}.");
 
-            _outputWriter.SaveOutputToTheFile(state.BestChromosomeOptimizationResult, state.BestChromosomeNetworkSolution.PathAllocations, _currentFileName);
+            _outputWriter.SaveOutputToTheFile(state.BestChromosomeOptimizationResult, state.BestChromosomeNetworkSolution.PathAllocations, _isNetworkFromFile, _currentFileName);
         }
 
         private void PrintBestAlgorithmInGeneration(GeneticAlgorithmState state, bool bestResult)

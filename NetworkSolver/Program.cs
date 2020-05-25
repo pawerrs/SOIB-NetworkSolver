@@ -4,6 +4,7 @@ using NetworkSolver.Common.Topology;
 using NetworkSolver.DataAccess.InputFileParser;
 using NetworkSolver.Services.GeneticService;
 using System;
+using System.Collections.Generic;
 
 namespace NetworkSolver
 {
@@ -11,25 +12,33 @@ namespace NetworkSolver
     {
         static void Main(string[] args)
         {
-            InputFileParser parser = new InputFileParser();
-            Console.WriteLine("Choose network to optimize:");
-            Console.WriteLine("1: Network_1.txt");
-            Console.WriteLine("2: Network_2.txt");
-            Console.WriteLine("3: Network_3.txt");
-            string choice = Console.ReadLine();
-            Network inputNetwork;
-            if (choice.Equals("1") || choice.Equals("2") || choice.Equals("3"))
+            var parser = new InputFileParser();
+
+            // get input network from user
+            Console.WriteLine("Please specify network topology which you want to solve.");
+
+            Console.Write("How many nodes are in the network? ");
+            var nodesCountInput = Console.ReadLine();
+
+            if (nodesCountInput is null)
             {
-                inputNetwork = parser.ReadNetwork($"Network_{choice}.txt");
-                if (inputNetwork == null)
-                    return;
-            }
-            else
-            {
+                Console.WriteLine("Invalid input.");
                 return;
             }
 
-            //Find all node pairs
+            var nodesCount = int.Parse(nodesCountInput);
+            var nodeConnections = new List<string>(nodesCount);
+            for (var i = 1; i <= nodesCount; i++)
+            {
+                Console.WriteLine($"Enter nodes reachable from node {i} separated by comma: ");
+                var currentNodeConnectionsInput = Console.ReadLine();
+                
+                nodeConnections.Add($"{i}:{currentNodeConnectionsInput}");
+            }
+
+            var inputNetwork = parser.ReadNetworkFromInput(nodeConnections);
+
+            // find all node pairs
             PathFinder pathFinder = new PathFinder();
 
             for (int i = 1; i < inputNetwork.Nodes.Count; i++)
@@ -51,7 +60,7 @@ namespace NetworkSolver
                 StoppingCriteria = StoppingCriteria.NoImprovement
             };
 
-            new GeneticService(parameters, inputNetwork, pathFinder, $"NetworkSolution_{choice}").Solve();
+            new GeneticService(parameters, inputNetwork, pathFinder).Solve();
         }
     }
 }

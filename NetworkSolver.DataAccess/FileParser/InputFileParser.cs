@@ -21,6 +21,11 @@ namespace NetworkSolver.DataAccess.InputFileParser
             return null;
         }
 
+        public Network ReadNetworkFromInput(List<string> input)
+        {
+            return ParseInputToNetwork(input);
+        }
+
         private Network ParseFileToNetwork(string pathToFile)
         {
             result = new Network();
@@ -28,6 +33,17 @@ namespace NetworkSolver.DataAccess.InputFileParser
             AddNodesToNetwork(fileLines);
             AddNodesConnections(fileLines);
             AddLinksToNetwork();
+            return result;
+        }
+
+        private Network ParseInputToNetwork(List<string> input)
+        {
+            result = new Network();
+
+            AddNodesToNetwork(input);
+            AddNodesConnections(input);
+            AddLinksToNetwork();
+
             return result;
         }
 
@@ -49,14 +65,15 @@ namespace NetworkSolver.DataAccess.InputFileParser
 
         private void AddNodesConnections(List<string> fileLines)
         {
-            foreach(string line in fileLines)
+            foreach(var line in fileLines)
             {
-                int currentNodeId = Int32.Parse(line.Split(':')[0]);
-                Node currentNode = result.Nodes.Find(x => x.NodeId == currentNodeId);
-                string[] connectedNodes = line.Split(':')[1].Split(',');
-                foreach(string connectedNodeId in connectedNodes) 
+                var currentNodeId = int.Parse(line.Split(':')[0]);
+                var currentNode = result.Nodes.Find(x => x.NodeId == currentNodeId);
+                var connectedNodes = line.Split(':')[1].Split(',');
+
+                foreach(var connectedNodeId in connectedNodes) 
                 {
-                    currentNode.ConnectedNodes.Add(result.Nodes.Find(x => x.NodeId == Int32.Parse(connectedNodeId)));
+                    currentNode.ConnectedNodes.Add(result.Nodes.Find(x => x.NodeId == int.Parse(connectedNodeId)));
                 }              
             }
         }
